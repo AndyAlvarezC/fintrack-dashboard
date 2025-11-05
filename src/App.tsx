@@ -1,9 +1,10 @@
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
 
   return (
     <>
-      <h1>Fintrack - Dashboard</h1>
+      <MainLayout />
     </>
   )
 }

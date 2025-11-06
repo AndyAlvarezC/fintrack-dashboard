@@ -1,10 +1,14 @@
-import Sidebar from "../components/Sidebar/Sidebar"
+import Sidebar from '../components/Sidebar/Sidebar';
 
-export default function MainLayout() {
+interface Props {
+  children: React.ReactNode;
+}
+
+export default function MainLayout({ children }: Props) {
   return (
-    <>
+    <div className="flex min-h-screen">
       <Sidebar />
-      <h1>Main Layout</h1>
-    </>
-  )
+      <main className="flex-1 p-6">{children}</main>
+    </div>
+  );
 }

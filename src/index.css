@@ -24,7 +24,7 @@
 /* Apply variables to common elements */
 body {
   @apply bg-black text-white;
-  background-color: var(--bg-primary);
+  background-color: #0D0D0D;
 }
 
 h1, h2, h3, h4, h5, h6 {

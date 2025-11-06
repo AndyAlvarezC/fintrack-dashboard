@@ -51,7 +51,7 @@ export default function DesktopSidebar({ className }: Props) {
                 `flex items-center gap-4 text-lg px-4 py-3 rounded-r-lg pl-14 transition-colors duration-300 ease-in-out
                 ${
                   isActive
-                    ? 'bg-linear-to-r from-[#423467] to-[#5f3cb0] font-semibold shadow-[0_0_15px_rgba(167,127,255,0.4)] text-white'
+                    ? 'bg-linear-to-br from-purple-500/10 via-violet-500/5 to-purple-600/10 font-semibold shadow-[0_0_15px_rgba(167,127,255,0.4)] text-white'
                     : 'text-(--text-secondary) hover:bg-linear-to-r hover:from-[#1F1C26] hover:to-[#2E2939]'
                 }`
               }

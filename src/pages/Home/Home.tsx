@@ -1,8 +1,9 @@
+// Home.tsx
 import Calendar from '../../components/Home/Calendar';
 import ExchangeRates from '../../components/Home/ExchangeRates';
 import ExpenditureCategories from '../../components/Home/ExpenditureCategories';
 import Expenses from '../../components/Home/Expenses';
-import FinancialAnalytics from '../../components/Home/FinancialAnalytics';
+import FinancialAnalytics from '../../components/Home/FinancialAnalytics/FinancialAnalytics';
 import Income from '../../components/Home/Income';
 import IncomeStatistics from '../../components/Home/IncomeStatistics';
 import MyCards from '../../components/Home/MyCards';
@@ -12,52 +13,47 @@ import TransactionHistory from '../../components/Home/TransactionHistory';
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-4 grid-rows-4 gap-4 w-[66%] ml-80 min-h-screen">
-      {/* Col 1–3 normales */}
-      <div className="col-span-2 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full h-full">
+      {/* 🔹 Fila 1 */}
+      <div className="col-span-2 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg h-full">
         <FinancialAnalytics />
       </div>
-      <div className="bg-indigo-400 p-4 rounded-lg">
+      <div className="bg-indigo-400 p-4 rounded-lg h-full">
         <SpendingStatistics />
       </div>
-
-      {/* 🔹 1er elemento columna 4 (ocupa fila 1–2) */}
-      <div className="bg-indigo-400 p-4 rounded-lg row-span-2 col-start-4">
+      <div className="bg-indigo-400 p-4 rounded-lg md:row-span-2 h-full">
         <MyCards />
       </div>
 
-      {/* Siguiente fila completa (col 1–3) */}
-      <div className="bg-indigo-400 p-4 rounded-lg">
+      {/* 🔹 Fila 2 */}
+      <div className="bg-indigo-400 p-4 rounded-lg h-full">
         <TotalBalance />
       </div>
-      <div className="bg-indigo-400 p-4 rounded-lg">
+      <div className="bg-indigo-400 p-4 rounded-lg h-full">
         <Income />
       </div>
-      <div className="bg-indigo-400 p-4 rounded-lg">
+      <div className="bg-indigo-400 p-4 rounded-lg h-full">
         <Expenses />
       </div>
 
-      {/* 🔹 2º elemento columna 4 (ocupa fila 3) */}
-      <div className="bg-indigo-400 p-4 rounded-lg row-start-3 col-start-4">
+      {/* 🔹 Fila 3 */}
+      <div className="bg-indigo-400 p-4 rounded-lg h-full">
         <Calendar />
       </div>
-
-      <div className="row-span-2 bg-indigo-400 p-4 rounded-lg">
+      <div className="bg-indigo-400 p-4 rounded-lg md:row-span-2 h-full">
         <IncomeStatistics />
       </div>
-      <div className="col-span-2 bg-indigo-400 p-4 rounded-lg col-start-2">
+      <div className="col-span-2 bg-indigo-400 p-4 rounded-lg h-full">
         <ExpenditureCategories />
       </div>
 
-      {/* 🔹 3º elemento columna 4 (ocupa fila 4) */}
-      <div className="bg-indigo-400 p-4 rounded-lg row-start-4 col-start-4">
+      {/* 🔹 Fila 4 */}
+      <div className="bg-indigo-400 p-4 rounded-lg h-full">
         <TransactionHistory />
       </div>
-
-      <div className="col-span-2 bg-indigo-400 p-4 rounded-lg col-start-2">
+      <div className="col-span-2 bg-indigo-400 p-4 rounded-lg h-full">
         <ExchangeRates />
       </div>
     </div>
   );
 }
-

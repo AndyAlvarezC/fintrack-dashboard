@@ -1,10 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import {
-  Home,
-  CreditCard,
-  Wallet,
-  PieChart,
-} from 'lucide-react';
+import { Home, CreditCard, Wallet, PieChart } from 'lucide-react';
 
 interface Props {
   className?: string;
@@ -31,7 +26,7 @@ export default function MobileBottomNav({ className }: Props) {
     shadow-[0_8px_32px_0_rgba(139,92,246,0.15),0_0_0_1px_rgba(255,255,255,0.1)_inset]
     ${className}`}
     >
-      {/* NAVIGATION  */}
+      {/* Navigation  */}
       <ul className="flex justify-around items-center px-2 py-1.5">
         {navItems.map(({ label, icon: Icon, path }) => (
           <li key={label}>
@@ -47,7 +42,9 @@ export default function MobileBottomNav({ className }: Props) {
               }
             >
               <Icon className="w-4 h-4" strokeWidth={2.5} />
-              <span className="text-[0.6rem] font-medium mt-0.5">{label}</span>
+              <span className="text-[0.6rem] font-semibold mt-0.5">
+                {label}
+              </span>
             </NavLink>
           </li>
         ))}

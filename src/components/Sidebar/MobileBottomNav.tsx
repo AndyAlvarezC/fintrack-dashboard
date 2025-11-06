@@ -1,23 +1,28 @@
 import { NavLink } from 'react-router-dom';
-import { Home, CreditCard, Wallet, PieChart, User, Settings, LogOut } from 'lucide-react';
+import {
+  Home,
+  CreditCard,
+  Wallet,
+  PieChart,
+} from 'lucide-react';
 
 interface Props {
   className?: string;
 }
 
 export default function MobileBottomNav({ className }: Props) {
-    const navItems = [
-      { label: 'Home', icon: Home, path: '/' },
-      { label: 'Payments', icon: CreditCard, path: '/payments' },
-      { label: 'Accounts', icon: Wallet, path: '/accounts' },
-      { label: 'Budget', icon: PieChart, path: '/budget' },
-      //{ label: 'Profile', icon: User, path: '/profile' },
-      //{ label: 'Settings', icon: Settings, path: '/settings' },
-      //{ label: 'Log Out', icon: LogOut, path: '/logout' },
+  const navItems = [
+    { label: 'Home', icon: Home, path: '/' },
+    { label: 'Payments', icon: CreditCard, path: '/payments' },
+    { label: 'Accounts', icon: Wallet, path: '/accounts' },
+    { label: 'Budget', icon: PieChart, path: '/budget' },
+    //{ label: 'Profile', icon: User, path: '/profile' },
+    //{ label: 'Settings', icon: Settings, path: '/settings' },
+    //{ label: 'Log Out', icon: LogOut, path: '/logout' },
   ];
-  
+
   return (
-    <div
+    <nav
       className={`w-[85%] max-w-xs fixed bottom-3 inset-x-0 mx-auto
     bg-linear-to-br from-purple-500/10 via-violet-500/5 to-purple-600/10
     backdrop-blur-2xl
@@ -26,6 +31,7 @@ export default function MobileBottomNav({ className }: Props) {
     shadow-[0_8px_32px_0_rgba(139,92,246,0.15),0_0_0_1px_rgba(255,255,255,0.1)_inset]
     ${className}`}
     >
+      {/* NAVIGATION  */}
       <ul className="flex justify-around items-center px-2 py-1.5">
         {navItems.map(({ label, icon: Icon, path }) => (
           <li key={label}>
@@ -46,6 +52,6 @@ export default function MobileBottomNav({ className }: Props) {
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 }

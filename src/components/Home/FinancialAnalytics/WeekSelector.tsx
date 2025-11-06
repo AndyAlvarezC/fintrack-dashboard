@@ -14,7 +14,7 @@ export default function WeekSelector({ week, setWeek }: WeekSelectorProps) {
       <select
         value={week}
         onChange={handleChange}
-        className="bg-transparent px-3 py-1 font-semibold text-white rounded-lg appearance-none"
+        className="bg-transparent px-3 py-1 font-semibold text-white rounded-lg appearance-none cursor-pointer"
       >
         <option value="this">This Week</option>
         <option value="prev">Last Week</option>

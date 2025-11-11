@@ -1,14 +1,14 @@
 import Calendar from '../../components/home/calendar/Calendar';
-import ExchangeRates from '../../components/home/ExchangeRates';
-import ExpenditureCategories from '../../components/home/ExpenditureCategories';
-import Expenses from '../../components/home/Expenses';
+import ExchangeRates from '../../components/home/exchangeRates/ExchangeRates';
+import ExpenditureCategories from '../../components/home/expenditureCategories/ExpenditureCategories';
+import Expenses from '../../components/home/expenses/Expenses';
 import FinancialAnalytics from '../../components/home/financialAnalytics/FinancialAnalytics';
 import Income from '../../components/home/income/Income';
-import IncomeStatistics from '../../components/home/IncomeStatistics';
-import MyCards from '../../components/home/MyCards';
+import IncomeStatistics from '../../components/home/incomeStatistics/IncomeStatistics';
+import MyCards from '../../components/home/myCard/MyCards';
 import SpendingStatistics from '../../components/home/spendingStatistics/SpendingStatistics';
 import TotalBalance from '../../components/home/totalBalance/TotalBalance';
-import TransactionHistory from '../../components/home/TransactionHistory';
+import TransactionHistory from '../../components/home/transactionHistory/TransactionHistory';
 import Header from '../../components/home/header/Header';
 
 export default function Home() {

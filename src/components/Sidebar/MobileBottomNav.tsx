@@ -1,21 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import { Home, CreditCard, Wallet, PieChart } from 'lucide-react';
+
+import { navItems } from './data/sideBarData';
 
 interface Props {
   className?: string;
 }
 
 export default function MobileBottomNav({ className }: Props) {
-  const navItems = [
-    { label: 'Home', icon: Home, path: '/' },
-    { label: 'Payments', icon: CreditCard, path: '/payments' },
-    { label: 'Accounts', icon: Wallet, path: '/accounts' },
-    { label: 'Budget', icon: PieChart, path: '/budget' },
-    //{ label: 'Profile', icon: User, path: '/profile' },
-    //{ label: 'Settings', icon: Settings, path: '/settings' },
-    //{ label: 'Log Out', icon: LogOut, path: '/logout' },
-  ];
-
   return (
     <nav
       className={`w-[85%] max-w-xs fixed bottom-3 inset-x-0 mx-auto

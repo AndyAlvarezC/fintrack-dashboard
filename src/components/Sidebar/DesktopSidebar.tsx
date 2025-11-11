@@ -1,28 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import {
-  Home,
-  CreditCard,
-  Wallet,
-  PieChart,
-  User,
-  Settings,
-  LogOut,
-} from 'lucide-react';
+
+import { navItems } from './data/sideBarData';
 
 interface Props {
   className?: string;
 }
 
 export default function DesktopSidebar({ className }: Props) {
-  const navItems = [
-    { label: 'Home', icon: Home, path: '/' },
-    { label: 'Payments', icon: CreditCard, path: '/payments' },
-    { label: 'Accounts', icon: Wallet, path: '/accounts' },
-    { label: 'Budget', icon: PieChart, path: '/budget' },
-    { label: 'Profile', icon: User, path: '/profile' },
-    { label: 'Settings', icon: Settings, path: '/settings' },
-    { label: 'Log Out', icon: LogOut, path: '/logout' },
-  ];
+
 
   return (
     <aside
@@ -36,7 +21,7 @@ export default function DesktopSidebar({ className }: Props) {
         <img
           src="/logo.jpeg"
           alt="Logo"
-          className="w-20 h-20 object-contain rounded-xl shadow-[0_0_10px_rgba(167,127,255,0.3)]"
+          className="w-20 h-20 object-contain rounded-xl shadow-[0_0_10px_rgba(167,127,255,0.3)] transition-all duration-200 ease-in-out hover:shadow-[0_0_30px_rgba(167,127,255,0.8)]"
         />
         <span className="tracking-wide">FinTrack</span>
       </NavLink>
@@ -48,7 +33,7 @@ export default function DesktopSidebar({ className }: Props) {
             <NavLink
               to={path}
               className={({ isActive }) =>
-                `flex items-center gap-4 text-lg px-4 py-3 rounded-r-lg pl-14 transition-colors duration-300 ease-in-out
+                `flex items-center gap-4 text-lg px-4 py-3 rounded-r-lg pl-14 transition-all duration-200 ease-in-out  hover:shadow-[0_0_30px_rgba(167,127,255,0.8)]
                 ${
                   isActive
                     ? 'bg-linear-to-br from-purple-500/10 via-violet-500/5 to-purple-600/10 font-semibold shadow-[0_0_15px_rgba(167,127,255,0.4)]'

@@ -5,7 +5,6 @@ interface WeekSelectorProps {
 
 export default function WeekSelector({ week, setWeek }: WeekSelectorProps) {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    // Aseguramos que el valor siempre sea 'this' | 'prev'
     setWeek(e.target.value as 'this' | 'prev');
   };
 
@@ -14,7 +13,7 @@ export default function WeekSelector({ week, setWeek }: WeekSelectorProps) {
       <select
         value={week}
         onChange={handleChange}
-        className="bg-transparent px-3 py-1 font-semibold text-white rounded-lg appearance-none cursor-pointer"
+        className="bg-transparent text-sm px-3 py-1 font-semibold rounded-lg appearance-none cursor-pointer transition-all duration-200 ease-in-out hover:shadow-[0_0_30px_rgba(167,127,255,0.8)] hover:bg-purple-500/20"
       >
         <option value="this">This Week</option>
         <option value="prev">Last Week</option>

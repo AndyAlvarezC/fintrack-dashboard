@@ -1,6 +1,3 @@
-
 export default function IncomeStatistics() {
-  return (
-    <div>IncomeStatistics</div>
-  )
+  return <div>IncomeStatistics</div>;
 }

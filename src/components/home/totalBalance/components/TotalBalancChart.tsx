@@ -1,6 +1,3 @@
-
 export default function TotalBalancChart() {
-  return (
-    <div>TotalBalancChart</div>
-  )
+  return <div>TotalBalancChart</div>;
 }

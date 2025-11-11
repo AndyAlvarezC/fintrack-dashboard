@@ -1,6 +1,3 @@
-
 export default function TransactionHistory() {
-  return (
-    <div>TransactionHistory</div>
-  )
+  return <div>TransactionHistory</div>;
 }

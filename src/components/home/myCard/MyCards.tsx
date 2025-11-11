@@ -1,6 +1,3 @@
-
 export default function MyCards() {
-  return (
-    <div>MyCards</div>
-  )
+  return <div>MyCards</div>;
 }

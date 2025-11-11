@@ -1,6 +1,3 @@
-
 export default function ExchangeRates() {
-  return (
-    <div>ExchangeRates</div>
-  )
+  return <div>ExchangeRates</div>;
 }

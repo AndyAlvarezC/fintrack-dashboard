@@ -1,6 +1,3 @@
-
 export default function ExpenditureCategories() {
-  return (
-    <div>ExpenditureCategories</div>
-  )
+  return <div>ExpenditureCategories</div>;
 }

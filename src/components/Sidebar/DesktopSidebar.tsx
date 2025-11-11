@@ -7,8 +7,6 @@ interface Props {
 }
 
 export default function DesktopSidebar({ className }: Props) {
-
-
   return (
     <aside
       className={`relative top-0 left-0 gap-8 min-h-screen w-65 bg-(--bg-secondary) flex flex-col items-center pt-6 pr-6 backdrop-blur-md rounded-r-3xl ${className}`}

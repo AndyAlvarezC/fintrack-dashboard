@@ -1,4 +1,4 @@
-import { Search } from "lucide-react"
+import { Search } from 'lucide-react';
 
 export default function HeaderSearchInput() {
   return (
@@ -16,5 +16,5 @@ export default function HeaderSearchInput() {
       />
       <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-300 pointer-events-none" />
     </div>
-  )
+  );
 }

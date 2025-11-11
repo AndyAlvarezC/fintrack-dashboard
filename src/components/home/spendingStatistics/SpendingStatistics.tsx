@@ -12,7 +12,6 @@ export default function SpendingStatistics() {
       </div>
 
       {/* Pie Chart */}
-
     </div>
-  )
+  );
 }

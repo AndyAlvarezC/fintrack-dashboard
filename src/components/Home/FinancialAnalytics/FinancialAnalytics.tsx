@@ -3,7 +3,6 @@ import Legend from './components/Legend';
 import WeekSelector from './components/WeekSelector';
 import FinancialChart from './components/FinancialChart';
 
-
 export default function FinancialAnalytics() {
   const [week, setWeek] = useState<'this' | 'prev'>('this');
 

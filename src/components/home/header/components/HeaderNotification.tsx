@@ -1,18 +1,23 @@
-import { Bell } from "lucide-react"
-import { useState } from "react"
+import { Bell } from 'lucide-react';
+import { useState } from 'react';
 
-export default function HeaderNotification() { 
-  const [isOpen, setIsOpen] = useState(false)
+export default function HeaderNotification() {
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleIsOpen = () => {
-    setIsOpen(prev => !prev)
-  }
+    setIsOpen((prev) => !prev);
+  };
 
   return (
     <div className="relative inline-block">
-      <button onClick={handleIsOpen} className={`bg-linear-to-br from-purple-500/10 via-violet-500/5 to-purple-600/10 font-semibold
+      <button
+        onClick={handleIsOpen}
+        className={`bg-linear-to-br from-purple-500/10 via-violet-500/5 to-purple-600/10 font-semibold
       shadow-[0_0_15px_rgba(167,127,255,0.4)] p-2 rounded-lg cursor-pointer
-      transition-all duration-200 ease-in-out hover:shadow-[0_0_30px_rgba(167,127,255,0.8)] hover:bg-purple-500/20 ${isOpen ? 'shadow-[0_0_30px_rgba(167,127,255,0.8)] bg-purple-500/20' : ''}`}>
+      transition-all duration-200 ease-in-out hover:shadow-[0_0_30px_rgba(167,127,255,0.8)] hover:bg-purple-500/20 ${
+        isOpen ? 'shadow-[0_0_30px_rgba(167,127,255,0.8)] bg-purple-500/20' : ''
+      }`}
+      >
         <Bell />
       </button>
       {isOpen && (
@@ -25,5 +30,5 @@ export default function HeaderNotification() {
         </div>
       )}
     </div>
-  )
+  );
 }

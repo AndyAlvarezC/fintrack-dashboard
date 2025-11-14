@@ -15,24 +15,42 @@ import { data } from '../data/financialAnalyticsData'
 export default function FinancialChart() {
 
   return (
-    <div className="w-full min-h-[250px] h-full flex items-center justify-center">
-      <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={data}>
+    <div className="w-full h-full min-h-[250px] max-w-full overflow-hidden">
+      <ResponsiveContainer width="100%" height="100%" minHeight={250}>
+        <AreaChart 
+          data={data} 
+          margin={{ top: 5, right: 10, left: -15, bottom: 5 }}
+        >
           <CartesianGrid stroke="#555" strokeDasharray="5 5" vertical={false} />
-          <XAxis dataKey="day" tick={{ fill: 'gray' }} axisLine={false} tickLine={false} />
+          <XAxis 
+            dataKey="day" 
+            tick={{ fill: 'gray', fontSize: 12 }} 
+            axisLine={false} 
+            tickLine={false}
+            height={40}
+          />
           <YAxis
             tickFormatter={formatDollar}
-            tick={{ fill: 'gray' }}
+            tick={{ fill: 'gray', fontSize: 12 }}
             axisLine={false}
             tickLine={false}
+            width={60}
           />
-          <Area dataKey="income" type="monotone" stroke="#7a46f5" fill="#443368" strokeWidth={3} />
+          <Area 
+            dataKey="income" 
+            type="monotone" 
+            stroke="#7a46f5" 
+            fill="#443368" 
+            strokeWidth={2}
+            isAnimationActive={false}
+          />
           <Area
             dataKey="expenses"
             type="monotone"
             stroke="#46dfe7"
             fill="#3b7485"
-            strokeWidth={3}
+            strokeWidth={2}
+            isAnimationActive={false}
           />
           <Tooltip content={CustomTooltip} />
         </AreaChart>

@@ -9,7 +9,7 @@ const data = [
 
 export default function MyCards() {
   return (
-    <div className="grid grid-rows-[auto1_fr] w-full h-full gap-4">
+    <div className="grid grid-rows-[auto_auto] w-full gap-4">
       {/* Header */}
       <div className="grid grid-cols-[1fr_auto] items-center w-full">
         <h2 className="text-md font-semibold">My Cards</h2>
@@ -20,9 +20,9 @@ export default function MyCards() {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-rows-[1fr_auto] w-full h-full">
+      <div className="grid grid-rows-[auto1_fr] w-full gap-4">
       {data.map((card, index) => (
-        <div key={index} className="grid grid-rows-[auto1_fr] p-4 w-full h-48 bg-linear-to-r from-indigo-600 via-indigo-700 to-indigo-800 rounded-2xl">
+        <div key={index} className="grid grid-rows-[auto1_fr] p-4 w-full h-auto bg-linear-to-r from-indigo-600 via-indigo-700 to-indigo-800 rounded-2xl">
           {/* Card Header */}
           <div className="flex items-start justify-between">
             <h2 className="text-gray-300 font-medium text-lg">{card.type}</h2>

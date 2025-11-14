@@ -12,6 +12,7 @@ export default function TotalBalance() {
       <div className="flex text-xl my-auto font-semibold">
         <h2>$ 9864.12</h2>
       </div>
+      
       {/* Area Chart */}
     </div>
   );

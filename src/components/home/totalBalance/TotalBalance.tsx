@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import WeekSelector from '../financialAnalytics/components/WeekSelector';
+import WeekSelector from '../ui/WeekSelector';
 
 export default function TotalBalance() {
   const [week, setWeek] = useState<'this' | 'prev'>('this');

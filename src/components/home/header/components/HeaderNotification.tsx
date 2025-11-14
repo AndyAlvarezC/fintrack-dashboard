@@ -9,7 +9,7 @@ export default function HeaderNotification() {
   };
 
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-block z-10">
       <button
         onClick={handleIsOpen}
         className={`bg-linear-to-br from-purple-500/10 via-violet-500/5 to-purple-600/10 font-semibold

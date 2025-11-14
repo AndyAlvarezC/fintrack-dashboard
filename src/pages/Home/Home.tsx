@@ -18,46 +18,50 @@ export default function Home() {
       <Header />
 
       {/* Main Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full flex-1">
-        {/* Row 1 */}
-        <div className="col-span-2 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg h-full">
-          <FinancialAnalytics />
-        </div>
-        <div className="col-span-1 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg h-full">
-          <SpendingStatistics />
-        </div>
-        <div className="col-span-1 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg h-full">
-          <MyCards />
-        </div>
-
-        {/* Row 2 */}
-        <div className="col-span-1 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg h-full">
-          <TotalBalance />
-        </div>
-        <div className="col-span-1 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg h-full">
-          <Income />
-        </div>
-        <div className="col-span-1 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg h-full">
-          <Expenses />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full h-full">
+        {/* Column 1 */}
+        <div className='flex flex-col gap-4'>
+          <div className="col-span-2 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <FinancialAnalytics />
+          </div>
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <TotalBalance />
+          </div>
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <Income />
+          </div>
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <Expenses />
+          </div>
         </div>
 
-        {/* Row 3 */}
-        <div className="col-span-1 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg h-full">
-          <Calendar />
-        </div>
-        <div className="col-span-1 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg h-full">
-          <IncomeStatistics />
-        </div>
-        <div className="col-span-1 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg h-full">
-          <ExpenditureCategories />
+        {/* Col 2 */}
+        <div className="flex flex-col gap-4">
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <SpendingStatistics />
+          </div>
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <IncomeStatistics />
+          </div>
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <ExpenditureCategories />
+          </div>
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <ExchangeRates />
+          </div>
         </div>
 
-        {/* Row 4 */}
-        <div className="col-span-1 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg h-full">
-          <TransactionHistory />
-        </div>
-        <div className="col-span-1 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg h-full">
-          <ExchangeRates />
+        {/* Col 3 */}
+        <div className="flex flex-col gap-4">
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <MyCards />
+          </div>
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <Calendar />
+          </div>
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <TransactionHistory />
+          </div>
         </div>
       </div>
     </div>

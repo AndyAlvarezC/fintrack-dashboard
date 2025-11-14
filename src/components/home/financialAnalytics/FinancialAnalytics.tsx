@@ -1,24 +1,21 @@
-import { useState } from 'react';
 import Legend from './components/Legend';
-import WeekSelector from './components/WeekSelector';
+import WeekSelector from '../ui/WeekSelector';
 import FinancialChart from './components/FinancialChart';
 
 export default function FinancialAnalytics() {
-  const [week, setWeek] = useState<'this' | 'prev'>('this');
-
   return (
-    <div className="flex flex-col w-full h-full">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-4">
+    <div className="grid grid-rows-[auto_1fr] w-full h-full gap-4">
+      {/* Header: h2, Legend & WeekSelector */}
+      <div className="grid grid-cols-[1fr_auto_auto] items-center gap-6">
         <h2 className="text-md font-semibold">Financial Analytics</h2>
-        <div className="flex items-center space-x-4">
-          <Legend />
-          <WeekSelector week={week} setWeek={setWeek} />
-        </div>
+        <Legend />
+        <WeekSelector />
       </div>
 
-      {/* Area Chart */}
-      <FinancialChart week={week} />
+      {/* Chart */}
+      <div className="w-full h-full">
+        <FinancialChart />
+      </div>
     </div>
   );
 }

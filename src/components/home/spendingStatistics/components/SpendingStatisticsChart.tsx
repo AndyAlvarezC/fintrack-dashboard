@@ -14,7 +14,7 @@ export default function SpendingStatisticsChart() {
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie data={data} dataKey="value" nameKey="name" innerRadius={40} outerRadius={60} stroke='none' >
-            {data.map((entry, index) => (
+            {data.map((_, index) => (
               <Cell key={index} fill={COLORS[index]} />
             ))}
           <Tooltip />

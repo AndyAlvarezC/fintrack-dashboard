@@ -13,7 +13,7 @@ export default function MobileBottomNav({ className }: Props) {
     bg-linear-to-br from-purple-500/10 via-violet-500/5 to-purple-600/10
     backdrop-blur-2xl
     border border-white/20
-    rounded-full
+    rounded-full z-100
     shadow-[0_8px_32px_0_rgba(139,92,246,0.15),0_0_0_1px_rgba(255,255,255,0.1)_inset]
     ${className}`}
     >

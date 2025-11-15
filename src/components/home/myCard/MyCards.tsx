@@ -26,7 +26,7 @@ export default function MyCards() {
           {/* Card Header */}
           <div className="flex items-start justify-between">
             <h2 className="text-gray-300 font-medium text-lg">{card.type}</h2>
-            <MdOutlineSettings className="text-2xl" />
+            <MdOutlineSettings className="text-2xl cursor-pointer" />
           </div>
           
           {/* Balance */}

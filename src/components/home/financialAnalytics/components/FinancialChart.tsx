@@ -41,7 +41,7 @@ export default function FinancialChart() {
             type="monotone" 
             stroke="#7a46f5" 
             fill="#443368" 
-            strokeWidth={2}
+            strokeWidth={3}
             isAnimationActive={false}
           />
           <Area
@@ -49,7 +49,7 @@ export default function FinancialChart() {
             type="monotone"
             stroke="#46dfe7"
             fill="#3b7485"
-            strokeWidth={2}
+            strokeWidth={3}
             isAnimationActive={false}
           />
           <Tooltip content={CustomTooltip} />

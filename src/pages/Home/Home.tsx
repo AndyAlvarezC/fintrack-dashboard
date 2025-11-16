@@ -13,50 +13,70 @@ import Header from '../../components/home/header/Header';
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full h-full space-y-6">
+    <div className="flex flex-col w-full h-screen p-6">
       {/* Header */}
-      <Header />
+      <div className="shrink-0">
+        <Header />
+      </div>
 
-      <div className="grid grid-cols-12 gap-4 w-full h-full">
-        {/* Financial Analytics: columna izquierda 6/12 */}
-        <div className="col-span-12 lg:col-span-6 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
-          <FinancialAnalytics />
+      <div className="flex-1 grid grid-cols-12 gap-4 py-6">
+        {/* SECCIÓN IZQUIERDA - 9 columnas */}
+        <div className="col-span-12 lg:col-span-9 grid grid-cols-9 gap-4 h-full">
+          {/* FILA 1 */}
+          {/* Financial Analytics - 6 de 9 columnas */}
+          <div className="col-span-9 lg:col-span-6 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <FinancialAnalytics />
+          </div>
+
+          {/* Spending Statistics - 3 de 9 columnas */}
+          <div className="col-span-9 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <SpendingStatistics />
+          </div>
+
+          {/* FILA 2 */}
+          {/* Total Balance - 3 de 9 columnas */}
+          <div className="col-span-9 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <TotalBalance />
+          </div>
+
+          {/* Income - 3 de 9 columnas */}
+          <div className="col-span-9 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <Income />
+          </div>
+
+          {/* Expenses - 3 de 9 columnas */}
+          <div className="col-span-9 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <Expenses />
+          </div>
+
+          {/* FILA 3 */}
+          {/* Income Statistics - 3 de 9 columnas */}
+          <div className="col-span-9 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <IncomeStatistics />
+          </div>
+
+          {/* Expenditure Categories y Exchange Rates juntos - 6 de 9 columnas */}
+          <div className="col-span-9 lg:col-span-6 grid grid-rows-2 gap-4">
+            <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+              <ExpenditureCategories />
+            </div>
+            <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+              <ExchangeRates />
+            </div>
+          </div>
         </div>
 
-        {/* Columna derecha superior: Spending Statistics */}
-        <div className="col-span-12 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
-          <SpendingStatistics />
-        </div>
-
-        {/* Columna derecha inferior: My Cards */}
-        <div className="col-span-12 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
-          <MyCards />
-        </div>
-
-        {/* Otros componentes debajo */}
-        <div className="col-span-12 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
-          <TotalBalance />
-        </div>
-        <div className="col-span-12 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
-          <Income />
-        </div>
-        <div className="col-span-12 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
-          <Expenses />
-        </div>
-        <div className="col-span-12 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
-          <Calendar />
-        </div>
-        <div className="col-span-12 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
-          <IncomeStatistics />
-        </div>
-        <div className="col-span-12 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
-          <ExpenditureCategories />
-        </div>
-        <div className="col-span-12 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
-          <ExchangeRates />
-        </div>
-        <div className="col-span-12 lg:col-span-3 bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
-          <TransactionHistory />
+        {/* SECCIÓN DERECHA - 3 columnas */}
+        <div className="col-span-12 lg:col-span-3 grid grid-rows-3 gap-4 h-full">
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <MyCards />
+          </div>
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <Calendar />
+          </div>
+          <div className="bg-(--bg-primary) shadow-[0_0_15px_rgba(167,127,255,0.4)] p-4 rounded-lg">
+            <TransactionHistory />
+          </div>
         </div>
       </div>
     </div>

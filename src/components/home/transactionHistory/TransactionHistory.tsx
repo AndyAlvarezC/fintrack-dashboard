@@ -29,7 +29,7 @@ export default function TransactionHistory() {
       <div className="flex-1 min-h-0 pt-2">
         <div className="w-full flex flex-col gap-2 text-sm">
           {data.map((item, index) => (
-            <div key={index} className="flex flex-row gap-4 py-2 border-b w-full items-end justify-between">
+            <div key={index} className="flex items-center justify-between py-2 border-b border-gray-700 last:border-b-0">
               <p className="flex flex-col">
                 {item.location}
                 <span className="text-gray-300">{item.date}</span>

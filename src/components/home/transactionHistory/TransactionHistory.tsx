@@ -9,7 +9,7 @@ export default function TransactionHistory() {
       <TransactionHeader />
 
       {/* Transactions */}
-      <div className="flex-1 min-h-0 pt-2 w-full overflow-auto">
+      <div className="flex-1 pt-2 w-full overflow-auto">
         {/* Transactions Map */}
         <TransactionMap />
       </div>

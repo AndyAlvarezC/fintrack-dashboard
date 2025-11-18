@@ -16,15 +16,19 @@ export default function Card() {
           <CardHeader type={card.type} />
 
           {/* Card Number */}
-          <div className="flex flex-col mt-10 2xl:mt-12 gap-2 font-semibold">
+          <div className="flex flex-col mt-12 gap-2 font-semibold">
             <CardField label="Card Number" value={card.number} copyable />
           </div>
 
-          {/* Expiry & CVV */}
-          <div className="flex justify-between items-center font-semibold mt-2 text-sm sm:text-base gap-6 sm:gap-4">
+          {/* Expiry, CVV & VISA Logo */}
+          <div className='flex justify-between'>
+          <div className="flex items-center font-semibold mt-2 text-sm sm:text-base gap-6 sm:gap-4">
             <CardField label="Expiry Date" value={card.date} />
             <CardField label="CVV" value={String(card.cvc)} copyable />
-            <RiVisaLine className="text-4xl sm:text-5xl shrink-0" />
+          </div>
+          <div className='flex justify-end'>
+            <RiVisaLine className="text-5xl" />
+          </div>
           </div>
         </div>
       ))}

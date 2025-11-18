@@ -25,8 +25,12 @@ export default function HeaderNotification() {
           <div className="flex justify-center">
             <h1>Notifications</h1>
           </div>
-          <h1 className="bg-indigo-900 px-4 py-2 rounded-lg mt-2">Esta abierto</h1>
-          <h1 className="bg-indigo-900 px-4 py-2 rounded-lg mt-2">Notificacion de nómina</h1>
+          <h1 className="bg-indigo-900 px-4 py-2 rounded-lg mt-2">
+            Esta abierto
+          </h1>
+          <h1 className="bg-indigo-900 px-4 py-2 rounded-lg mt-2">
+            Notificacion de nómina
+          </h1>
         </div>
       )}
     </div>

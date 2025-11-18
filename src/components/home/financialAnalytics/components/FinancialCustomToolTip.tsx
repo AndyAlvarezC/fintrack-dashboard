@@ -1,4 +1,4 @@
-export default function CustomTooltip({ active, payload, label }: any) {
+export default function FinancialCustomTooltip({ active, payload, label }: any) {
   if (!active || !payload || !payload.length) return null;
 
   const ordered = payload.sort((a: any) => (a.dataKey === 'Income' ? -1 : 1));

@@ -33,7 +33,9 @@ export default function MobileBottomNav({ className }: Props) {
               }
             >
               <Icon className="w-4 h-4" strokeWidth={2.5} />
-              <span className="text-[0.6rem] font-semibold mt-0.5">{label}</span>
+              <span className="text-[0.6rem] font-semibold mt-0.5">
+                {label}
+              </span>
             </NavLink>
           </li>
         ))}

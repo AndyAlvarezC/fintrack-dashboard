@@ -23,7 +23,7 @@ export default function CardModalHeader({ onClose }: props) {
           onClick={onClose}
           className="rounded-full p-2 text-slate-400 transition-colors ease-in duration-200 hover:bg-slate-800 hover:text-white cursor-pointer"
         >
-          <X className="h-5 w-5" />
+          <X className="h-6 w-6" />
         </button>
       </div>
     </div>

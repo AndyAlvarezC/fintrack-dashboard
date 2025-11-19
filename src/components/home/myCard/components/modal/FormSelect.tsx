@@ -15,6 +15,7 @@ interface Props {
 
 function FormSelect({ label, name, value, onChange, options }: Props) {
   return (
+    // Modal Form Select Options
     <div>
       <label className="text-sm font-medium text-slate-300">{label}</label>
       <select

@@ -1,26 +1,26 @@
-import { useState } from 'react';
-import { GoPlus } from 'react-icons/go';
-import CardModal from './modal/CardModal';
+interface Props {
+  onOpenModal: () => void;
+  totalCards: number;
+}
 
-export default function MyCardsHeader() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleOpenModal = () => setIsOpen((prev) => !prev);
+export default function MyCardsHeader({ onOpenModal, totalCards }: Props) {
   return (
-    <>
-      {/* Header */}
-      <div className="flex items-center justify-between w-full">
-        <h2 className="text-md md:text-lg font-semibold">My Cards</h2>
-        <div
-          onClick={handleOpenModal}
-          className="flex flex-row items-center gap-2"
-        >
-          <h3 className="font-semibold text-sm">Add New</h3>
-          <GoPlus className="text-2xl cursor-pointer" />
-        </div>
+    // Cards Section Header
+    <div className="flex justify-between items-center">
+      {/* h1 & Total Cards Number */}
+      <div>
+        <h1 className="text-2xl font-bold text-white">My Cards</h1>
+        <p className="text-slate-400 text-sm mt-1">
+          {totalCards} {totalCards === 1 ? 'tarjeta' : 'cards'}
+        </p>
       </div>
-      {/* Modal */}
-      {isOpen && <CardModal onClose={handleOpenModal} />}
-    </>
+      {/* Create New Card & Open Modal */}
+      <button
+        onClick={onOpenModal}
+        className="px-6 py-3 bg-linear-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-xl hover:scale-105 transition-all ease-in duration-200 shadow-lg shadow-blue-500/25 cursor-pointer"
+      >
+        + New Card
+      </button>
+    </div>
   );
 }

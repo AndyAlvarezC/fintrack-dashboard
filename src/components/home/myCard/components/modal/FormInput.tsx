@@ -10,6 +10,7 @@ interface Props {
 
 function FormInput({ label, name, value, placeholder, onChange }: Props) {
   return (
+    // Modal Form Inputs
     <div>
       <label className="text-sm font-medium text-slate-300">{label}</label>
       <input

@@ -1,10 +1,16 @@
-import { MdOutlineSettings } from 'react-icons/md';
+interface Props {
+  type: string;
+  label?: string;
+}
 
-export default function CardHeader({ type }: { type: string }) {
+export default function CardHeader({ type, label }: Props) {
   return (
-    <div className="flex items-start justify-between">
-      <h2 className="text-gray-300 font-medium text-sm">{type}</h2>
-      <MdOutlineSettings className="text-lg cursor-pointer shrink-0" />
+    // Card Header: Label & Type
+    <div className="flex justify-between items-center">
+      <p className="text-sm font-medium text-white/80">{label}</p>
+      <p className="text-sm font-bold uppercase tracking-wider text-white">
+        {type}
+      </p>
     </div>
   );
 }

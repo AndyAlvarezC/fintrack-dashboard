@@ -10,6 +10,7 @@ export default function CardField({
   copyable?: boolean;
 }) {
   return (
+    // Card Number Fields
     <div className="flex flex-col gap-1">
       <span className="font-normal text-xs sm:text-sm">{label}</span>
       <span className="font-bold flex items-center gap-2 text-xs sm:text-sm">

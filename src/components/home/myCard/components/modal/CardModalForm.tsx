@@ -12,12 +12,14 @@ interface Props {
   ) => void;
 }
 
+// Card Types Select Options
 const cardTypeOptions = [
   { value: 'silver', label: 'Silver' },
   { value: 'gold', label: 'Gold' },
   { value: 'platinum', label: 'Platinum' },
 ];
 
+// Card Network Select Options
 const cardNetworkOptions = [
   { value: 'visa', label: 'Visa' },
   { value: 'mastercard', label: 'Mastercard' },
@@ -26,6 +28,10 @@ const cardNetworkOptions = [
 function CardModalForm({ formData, handleInputChange }: Props) {
   return (
     <>
+      {/* Inputs & Selects */}
+
+      {/* Inputs */}
+      {/* First Name Input */}
       <FormInput
         label="First Name"
         name="firstName"
@@ -34,6 +40,7 @@ function CardModalForm({ formData, handleInputChange }: Props) {
         onChange={handleInputChange}
       />
 
+      {/* Last Name Input */}
       <FormInput
         label="Last Name"
         name="lastName"
@@ -42,6 +49,7 @@ function CardModalForm({ formData, handleInputChange }: Props) {
         onChange={handleInputChange}
       />
 
+      {/* Card Label Input */}
       <FormInput
         label="Card Label"
         name="cardLabel"
@@ -50,7 +58,9 @@ function CardModalForm({ formData, handleInputChange }: Props) {
         onChange={handleInputChange}
       />
 
+      {/* Selects */}
       <div className="grid grid-cols-2 gap-4">
+        {/*  Card Type Select */}
         <FormSelect
           label="Card Type"
           name="cardType"
@@ -59,6 +69,7 @@ function CardModalForm({ formData, handleInputChange }: Props) {
           options={cardTypeOptions}
         />
 
+        {/*  Card Network Select */}
         <FormSelect
           label="Card Network"
           name="cardNetwork"

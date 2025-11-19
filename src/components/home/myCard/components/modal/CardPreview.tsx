@@ -8,9 +8,9 @@ interface Props {
 }
 
 const cardColors: Record<CardType, string> = {
-  silver: 'bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900',
-  gold: 'bg-gradient-to-br from-yellow-600 via-amber-600 to-yellow-700',
-  platinum: 'bg-gradient-to-br from-slate-900 via-slate-800 to-black',
+  silver: 'bg-linear-to-br from-slate-800 via-slate-700 to-slate-900',
+  gold: 'bg-linear-to-br from-yellow-600 via-amber-600 to-yellow-700',
+  platinum: 'bg-linear-to-br from-slate-900 via-slate-800 to-black',
 };
 
 const cardNumbers: Record<CardType, string> = {
@@ -20,6 +20,7 @@ const cardNumbers: Record<CardType, string> = {
 };
 
 function CardPreview({ formData }: Props) {
+  // Memoized values for performance
   const cardColorClass = useMemo(
     () => cardColors[formData.cardType],
     [formData.cardType]
@@ -37,13 +38,14 @@ function CardPreview({ formData }: Props) {
 
   return (
     <div className="flex items-center justify-center lg:justify-end relative">
+      {/* Card Container with Dynamic Colors */}
       <div
-        className={`${cardColorClass} relative w-full aspect-[1.586/1] max-w-[340px] rounded-2xl p-5 sm:p-6 shadow-2xl transition-all duration-200 hover:scale-105 cursor-pointer will-change-transform`}
+        className={`${cardColorClass} relative w-full aspect-[1.586/1] max-w-[340px] rounded-2xl p-5 sm:p-6 shadow-2xl`}
       >
         {/* Top Left - Card Label */}
         <div className="absolute top-5 sm:top-6 left-5 sm:left-6">
           <p className="text-xs sm:text-sm font-medium text-white">
-            {formData.cardLabel || 'My Card'}
+            {formData.cardLabel}
           </p>
         </div>
 

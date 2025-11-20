@@ -1,5 +1,4 @@
-import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, useState, useCallback, memo } from 'react';
+import { useState, useCallback, memo } from 'react';
 import CardModalHeader from './CardModalHeader';
 import CardModalBenefits from './CardModalBenefits';
 import CardModalForm from './CardModalForm';
@@ -11,10 +10,8 @@ export interface props {
   onSubmit: (CardData: FormData) => void;
 }
 
-// Card Type Types
 export type CardType = 'silver' | 'gold' | 'platinum';
 
-// Interface of FormData
 export interface FormData {
   firstName: string;
   lastName: string;
@@ -27,9 +24,6 @@ export interface FormData {
 }
 
 function CardModal({ onClose, onSubmit }: props) {
-  {
-    /* State to Control Form Data */
-  }
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
@@ -41,9 +35,7 @@ function CardModal({ onClose, onSubmit }: props) {
     cvv: '',
   });
 
-  {
-    /* Update Form Data on Input Change */
-  }
+  // Tracks Every Form Field Update and Syncs The Value With The Component State.
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       const { name, value } = e.target;
@@ -52,13 +44,21 @@ function CardModal({ onClose, onSubmit }: props) {
     []
   );
 
+  {/* Generate 16 Random Digits */}
+  function generateCardNumber() {
+    const digits = Array.from({ length: 16 }, () =>
+      Math.floor(Math.random() * 10)
+    ).join('');
+
+    return digits.replace(/(\d{4})(?=\d)/g, '$1 ');
+  }
+
   {
-    /* Handle Submit: Generate Card Number, Expiry Date & CVV */
+    /* Handle submit: Create Card Number, Expiry Date, Cvv & New Card */
   }
   const handleSubmit = useCallback(() => {
-    const cardNumber = `**** **** **** ${Math.floor(
-      1000 + Math.random() * 9000
-    )}`;
+    const cardNumber = generateCardNumber();
+
     const expiryDate = `${String(new Date().getMonth() + 1).padStart(
       2,
       '0'
@@ -76,60 +76,68 @@ function CardModal({ onClose, onSubmit }: props) {
     onClose();
   }, [formData, onSubmit, onClose]);
 
+  {
+    /* Close Modal on Backdrop Click */
+  }
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    // Modal Container
-    <Transition appear show as={Fragment}>
-      <Dialog
-        as="div"
-        className="fixed inset-0 z-50 flex items-center justify-center p-4"
-        onClose={onClose}
-      >
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-150"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-100"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm" />
-        </Transition.Child>
+    // Modal_ Container
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-saturate-150 animate-fadeIn"
+      onClick={handleBackdropClick}
+    >
+      {/* Modal: Header */}
+      <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-linear-to-b from-slate-900 to-slate-950 shadow-2xl animate-scaleIn">
+        <CardModalHeader onClose={onClose} onSubmit={onSubmit} />
 
-        <div className="relative w-full max-w-4xl">
-          <div className="flex min-h-full items-center justify-center text-center">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-150"
-              enterFrom="opacity-0 scale-96"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-100"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
-              {/* Modal Form Container */}
-              <Dialog.Panel className="relative w-full max-w-4xl transform overflow-hidden rounded-3xl bg-linear-to-b from-slate-900 to-slate-950 shadow-2xl max-h-[90vh] overflow-y-auto">
-                <CardModalHeader onClose={onClose} onSubmit={onSubmit} />
-
-                <div className="grid gap-6 p-6 lg:grid-cols-2 text-left">
-                  <div className="space-y-4">
-                    <CardModalForm
-                      formData={formData}
-                      handleInputChange={handleInputChange}
-                    />
-                    <CardModalBenefits cardType={formData.cardType} />
-                  </div>
-
-                  <CardPreview formData={formData} />
-                </div>
-
-                <CardModalFooter onClose={onClose} onSubmit={handleSubmit} />
-              </Dialog.Panel>
-            </Transition.Child>
+        {/* Moda: Form & Benefits */}
+        <div className="grid gap-6 p-6 lg:grid-cols-2 text-left">
+          <div className="space-y-4">
+            <CardModalForm
+              formData={formData}
+              handleInputChange={handleInputChange}
+            />
+            <CardModalBenefits cardType={formData.cardType} />
           </div>
+
+          <CardPreview formData={formData} />
         </div>
-      </Dialog>
-    </Transition>
+        {/* Modal: Footer */}
+        <CardModalFooter onClose={onClose} onSubmit={handleSubmit} />
+      </div>
+
+      {/* Modal Open & Close Animations */}
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+          from { 
+            opacity: 0;
+            transform: scale(0.96);
+          }
+          to { 
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.15s ease-out;
+        }
+        
+        .animate-scaleIn {
+          animation: scaleIn 0.15s ease-out;
+        }
+      `}</style>
+    </div>
   );
 }
 

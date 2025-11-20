@@ -1,8 +1,8 @@
 import { RiVisaLine, RiMastercardLine } from 'react-icons/ri';
 
 import type { CardType as CardTypeEnum } from './modal/CardModal';
-import CardField from '../helpers/CardField';
-import CardHeader from '../helpers/CardHeader';
+import CardField from './CardField';
+import CardHeader from './CardHeader';
 
 interface CardProps {
   cards: {
@@ -41,7 +41,7 @@ export default function Card({ cards }: CardProps) {
       {cards.map((card, index) => (
         <div
           key={index}
-          className={`relative w-full aspect-[1.586/1] max-w-[340px] rounded-2xl p-5 sm:p-6 shadow-2xl transition-all duration-200 hover:scale-105 cursor-pointer group ${
+          className={`relative w-full aspect-[1.586/1] max-w-[340px] rounded-2xl p-5 sm:p-6 shadow-2xl transition-all duration-200 hover:scale-105 group ${
             cardColors[card.cardType]
           }`}
         >

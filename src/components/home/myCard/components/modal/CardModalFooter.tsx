@@ -21,7 +21,7 @@ function CardModalFooter({ onClose, onSubmit }: Props) {
       <button
         type="button"
         onClick={onSubmit}
-        className="rounded-xl bg-linear-to-r from-blue-500 to-blue-600 px-4 sm:px-6 py-2.5 font-semibold text-white shadow-lg shadow-blue-500/25 transition-all ease-in duration-200 hover:shadow-blue-500/40 hover:scale-105 cursor-pointer"
+        className="rounded-xl bg-linear-to-r from-blue-500 to-blue-600 px-4 sm:px-6 py-2.5 font-semibold text-white shadow-lg shadow-blue-500/25 transition-transform ease-in duration-200 hover:shadow-blue-500/40 hover:scale-105 cursor-pointer"
       >
         Ceate Card
       </button>

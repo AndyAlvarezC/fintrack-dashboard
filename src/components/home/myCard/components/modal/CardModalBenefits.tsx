@@ -46,8 +46,8 @@ function CardModalBenefits({ cardType }: Props) {
             {cardTypeCapitalized} Benefits
           </h1>
           <ul className="mt-2 space-y-1 text-xs text-slate-400">
-            {currentBenefits.map((benefit, index) => (
-              <li key={index}>{benefit}</li>
+            {currentBenefits.map((benefit, _) => (
+              <li key={benefit}>{benefit}</li>
             ))}
           </ul>
         </div>

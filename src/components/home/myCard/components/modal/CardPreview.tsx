@@ -45,7 +45,7 @@ function CardPreview({ formData }: Props) {
         {/* Top Left - Card Label */}
         <div className="absolute top-5 sm:top-6 left-5 sm:left-6">
           <p className="text-xs sm:text-sm font-medium text-white">
-            {formData.cardLabel}
+            {formData.cardLabel || 'My Card'}
           </p>
         </div>
 

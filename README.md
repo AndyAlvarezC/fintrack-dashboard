@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+# 📊 FinTrack Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Description:**  
+Dashboard web application for monitoring financial data and exchange rates. Built with **React, TypeScript, and TailwindCSS**, featuring a clean architecture, reusable hooks, and a fully responsive design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Technologies
 
-## React Compiler
+| Technology   | Usage                                           |
+|------------|-----------------------------------------------|
+| Vite       | Project setup and bundling                     |
+| React      | Components and UI                              |
+| TypeScript | Static typing and code safety                  |
+| TailwindCSS| Styling, responsive and modern design          |
+| React Hooks| `useState`, `useEffect` and custom hooks for reactive logic |
+| Frankfurter API | Fetching live exchange rates              |
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## ⚡ Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+[View live demo](https://fintrack-dashboard.vercel.app/) 🌐
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 💻 Quick Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Clone the repository:**
+```bash
+https://github.com/AndyAlvarezC/fintrack-dashboard.git
+`````
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Enter the project folder:**
+```bash
+cd fintrack-dashboard
+`````
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3. **Install dependencies**
+```bash
+npm install
+`````
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4. **Start development server:**
+```bash
+npm run dev
+`````
+
+5. **Open in browser**
+```bash
+http://localhost:5173
+`````
+
+---
+
+## ✨ Main Features
+
+- **Live exchange rates dashboard** with percentage change indicators  
+- **Two-column responsive layout** for displaying currency data  
+- **Custom hook (`useExchangeRates`)** for fetching and managing exchange rates  
+- **Loading and error states** handled gracefully with user feedback  
+- **Clean and commented code** following frontend architecture best practices  
+- **Fully responsive design** using TailwindCSS  
+- **Reusable components** for headers and rate rows  
+- **Automatic refresh** every 10 minutes to keep data up to date  
+- **Visual cues** for rate increases/decreases with icons and color coding  
+

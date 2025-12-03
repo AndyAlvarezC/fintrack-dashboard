@@ -1,23 +1,40 @@
-import CircularChart from './components/ExpenditureChart';
+import { useState } from 'react';
+
 import ExpenditureHeader from './components/ExpenditureHeader';
 import ExpenditureLegend from './components/ExpenditureLegend';
-import { expenditureCategories } from './data/expenditureCategories';
+import ExpenditureChart from './components/ExpenditureChart';
 
+import {
+  expenditureCategoriesThis,
+  expenditureCategoriesPrev,
+} from '../../data/mockData';
+
+// Expenditure Categories Component
+
+// Main Component
 export default function ExpenditureCategories() {
+  const [option, setOption] = useState<'this' | 'prev'>('this');
+
+  const categories =
+    option === 'this' ? expenditureCategoriesThis : expenditureCategoriesPrev;
+
   return (
     <div className="flex flex-col h-full gap-4 w-full">
-      {/* Header */}
-      <ExpenditureHeader />
+      {/* Header with option selector */}
+      <ExpenditureHeader option={option} setOption={setOption} />
 
-      {/* Legend & Charts */}
-      <div className="flex flex-col md:flex-row items-center w-full gap-4">
-        {/* Legend */}
-        <ExpenditureLegend />
-        {/* Circular Progress Charts */}
-        <div className="flex flex-col sm:flex-row w-full md:w-1/2 gap-4 md:m-auto justify-center">
-          {expenditureCategories.map((category, index) => (
-            <div key={index} className="flex-1 flex justify-center min-w-0">
-              <CircularChart data={category} />
+      {/* Container for legend and charts */}
+      <div className="flex flex-col md:flex-row items-start w-full gap-6 transition-opacity duration-300">
+        {/* Categories legend */}
+        <div className="w-full md:w-auto">
+          <ExpenditureLegend />
+        </div>
+
+        {/* Circular progress charts */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 w-full md:flex-1 gap-4 sm:gap-6 place-items-center">
+          {categories.map((category, index) => (
+            <div key={index}>
+              <ExpenditureChart data={category} />
             </div>
           ))}
         </div>

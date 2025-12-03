@@ -1,3 +1,4 @@
+// Format Short Weekday
 export function formatShortWeekday(locale: string | undefined, date: Date) {
   return date
     .toLocaleDateString(locale ?? 'en-EN', { weekday: 'short' })

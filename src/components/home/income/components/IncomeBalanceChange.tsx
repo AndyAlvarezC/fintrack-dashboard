@@ -1,19 +1,42 @@
-import { CiCircleChevUp } from 'react-icons/ci';
+import { CiCircleChevUp, CiCircleChevDown } from 'react-icons/ci';
 
-export default function IncomeBalanceChange() {
+interface Props {
+  data: { Income: number }[];
+  prevData: { Income: number }[];
+}
+
+export default function IncomeBalanceChange({ data, prevData }: Props) {
+  const currentIncome = data[data.length - 1].Income;
+  const previousIncome = prevData[prevData.length - 1].Income;
+
+  const change = ((currentIncome - previousIncome) / previousIncome) * 100;
+  const isPositive = change >= 0;
+
   return (
-    <>
-      {/* Left Columns: Balance & Change 24h */}
-      <div className="flex flex-col justify-between h-full">
-        <div className="flex-1 flex items-center justify-center">
-          <h2 className="text-xl md:text-2xl font-semibold">$ 1287.27</h2>
-        </div>
-
-        <div className="flex items-center gap-1">
-          <CiCircleChevUp className="text-2xl text-green-500" strokeWidth={1} />
-          <h3 className="text-green-500 font-semibold">+3.7%</h3>
-        </div>
+    <div className="flex flex-col justify-between h-full">
+      {/* Current Income Display */}
+      <div className="flex-1 flex items-center justify-center">
+        <h2 className="text-xl md:text-3xl font-semibold">
+          $ {currentIncome.toLocaleString()}
+        </h2>
       </div>
-    </>
+
+      {/* 24h Change */}
+      <div className="flex items-center gap-1">
+        {isPositive ? (
+          <CiCircleChevUp className="text-2xl text-green-500" strokeWidth={1} />
+        ) : (
+          <CiCircleChevDown className="text-2xl text-red-500" strokeWidth={1} />
+        )}
+        <h3
+          className={`font-semibold ${
+            isPositive ? 'text-green-500' : 'text-red-500'
+          }`}
+        >
+          {isPositive ? '+' : ''}
+          {change.toFixed(1)}%
+        </h3>
+      </div>
+    </div>
   );
 }

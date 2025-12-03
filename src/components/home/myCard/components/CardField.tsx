@@ -28,20 +28,21 @@ export default function CardField({
     <div className="flex flex-col gap-1">
       <span className="font-normal text-xs sm:text-sm">{label}</span>
 
-      <div className="relative inline-block">
+      <div className="relative inline-flex">
         <span
-          className={`font-bold flex items-center gap-2 text-xs sm:text-sm ${
-            copyable ? 'cursor-pointer' : ''
+          className={`font-bold inline-flex items-center gap-2 text-xs sm:text-sm ${
+            copyable ? 'cursor-pointer hover:opacity-80 transition-opacity ease-in-out duration-200' : ''
           }`}
           onClick={handleCopy}
         >
-          {value} {copyable && <MdContentCopy />}
+          {value}{' '}
+          {copyable && <MdContentCopy className="text-sm sm:text-base" />}
         </span>
 
         {/* Show alert when value is copied */}
         {copied && (
-          <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-green-500 text-white px-3 py-1 rounded-lg shadow-lg text-xs whitespace-nowrap text-center">
-            Copied to clipboard!
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-green-500 text-white px-3 py-1 rounded-lg shadow-lg text-xs whitespace-nowrap z-10 animate-fade-in">
+            Copied!
           </div>
         )}
       </div>

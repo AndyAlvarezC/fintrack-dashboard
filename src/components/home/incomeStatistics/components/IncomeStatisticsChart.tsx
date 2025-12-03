@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
   BarChart,
   Bar,
@@ -7,53 +8,75 @@ import {
   Tooltip,
   CartesianGrid,
 } from 'recharts';
-import { incomeData } from '../data/incomeStatistics';
-import { formatDollar } from '../helpers/formatDolar';
 
-export default function IncomeStatisticsChart() {
+import { formatDollar } from '../../../helpers/formatDollar';
+import CustomToolTip from '../../ui/CustomToolTip';
+
+import { IncomeDataThisWeek, IncomeDataPrevWeek } from '../../../data/mockData';
+
+interface Props {
+  option: 'this' | 'prev';
+}
+
+// Component
+export default function IncomeStatisticsChart({ option }: Props) {
+  const [data, setData] = useState(IncomeDataThisWeek);
+
+  // Update chart data
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setData(option === 'this' ? IncomeDataThisWeek : IncomeDataPrevWeek);
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [option]);
+
   return (
-    <>
+    <div className="w-full h-full">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
-          data={incomeData}
+          data={data}
           margin={{ top: 10, right: 10, left: -10, bottom: 5 }}
         >
           <CartesianGrid stroke="#333" strokeDasharray="5 5" vertical={false} />
+          {/* X-axis */}
           <XAxis
             dataKey="day"
             tick={{ fill: 'gray', fontSize: 12 }}
             axisLine={false}
             tickLine={false}
           />
+          {/* Y-axis */}
           <YAxis
             tickFormatter={formatDollar}
             tick={{ fill: 'gray', fontSize: 12 }}
             axisLine={false}
             tickLine={false}
-            ticks={[0, 400, 800, 1200, 1600]}
+            ticks={[0, 200, 400, 600, 800, 1000]}
           />
-          <Tooltip
-            contentStyle={{
-              backgroundColor: '#1f2937',
-              border: '1px solid #374151',
-              borderRadius: '8px',
-            }}
-            labelStyle={{ color: '#fff' }}
-          />
+          {/* Bar for cashback */}
           <Bar
             dataKey="cashback"
-            fill="#443368"
+            fill="#8b5cf6"
             radius={[4, 4, 0, 0]}
             maxBarSize={40}
+            isAnimationActive={true}
+            animationDuration={800}
+            animationEasing="ease-in-out"
           />
+          {/* Bar for replenishment */}
           <Bar
             dataKey="replenishment"
-            fill="#3b7485"
+            fill="#0d9488"
             radius={[4, 4, 0, 0]}
             maxBarSize={40}
+            isAnimationActive={true}
+            animationDuration={800}
+            animationEasing="ease-in-out"
           />
+          {/* Custom tooltip component */}
+          <Tooltip content={<CustomToolTip />} />
         </BarChart>
       </ResponsiveContainer>
-    </>
+    </div>
   );
 }

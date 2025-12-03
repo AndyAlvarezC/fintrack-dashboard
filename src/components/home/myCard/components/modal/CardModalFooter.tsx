@@ -5,11 +5,12 @@ interface Props {
   onSubmit: () => void;
 }
 
+// Footer component for modal with action buttons
 function CardModalFooter({ onClose, onSubmit }: Props) {
   return (
-    // Modal Footer Buttons
+    // Container for footer buttons
     <div className="sm:px-6 pb-6 flex items-center justify-center sm:justify-end gap-3 border-t border-slate-800 pt-6">
-      {/* Cancel & Close Modal */}
+      {/* Cancel button to close modal */}
       <button
         type="button"
         onClick={onClose}
@@ -17,7 +18,8 @@ function CardModalFooter({ onClose, onSubmit }: Props) {
       >
         Cancel
       </button>
-      {/* Create New Card Button */}
+
+      {/* Create card button */}
       <button
         type="button"
         onClick={onSubmit}

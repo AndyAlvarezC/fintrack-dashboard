@@ -1,13 +1,26 @@
+import ComponentsHeader from '../../ui/ComponentsHeader';
 import Selector from '../../ui/Selector';
 
-export default function IncomeHeader() {
+interface IncomeHeaderProps {
+  option: 'this' | 'prev';
+  setOption: React.Dispatch<React.SetStateAction<'this' | 'prev'>>;
+}
+
+export default function IncomeHeader({ option, setOption }: IncomeHeaderProps) {
   return (
-    <>
-      {/* Header */}
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-md md:text-lg font-semibold">Income</h2>
-        <Selector time="This Month" />
-      </div>
-    </>
+    <div className="flex justify-between items-center mb-4">
+      {/* Header Container */}
+      <ComponentsHeader name="Income" />
+
+      {/* Selector for Month Option */}
+      <Selector
+        option={option}
+        setOption={setOption}
+        options={[
+          { value: 'this', label: 'This Month' },
+          { value: 'prev', label: 'Last Month' },
+        ]}
+      />
+    </div>
   );
 }

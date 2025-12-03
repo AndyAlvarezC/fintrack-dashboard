@@ -1,10 +1,30 @@
+import ComponentsHeader from '../../ui/ComponentsHeader';
 import Selector from '../../ui/Selector';
 
-export default function SpendingStatisticsHeader() {
+interface SpendingStatisticsHeaderProps {
+  option: 'this' | 'prev';
+  setOption: React.Dispatch<React.SetStateAction<'this' | 'prev'>>;
+}
+
+export default function SpendingStatisticsHeader({
+  option,
+  setOption,
+}: SpendingStatisticsHeaderProps) {
   return (
+    // Header container: title + selector
     <div className="flex items-center justify-between w-full">
-      <h2 className="text-md md:text-lg font-semibold">Spending Statistics</h2>
-      <Selector time="This Week" />
+      {/* Component title */}
+      <ComponentsHeader name="Spending Statistics" />
+
+      {/* Week selector */}
+      <Selector
+        option={option}
+        setOption={setOption}
+        options={[
+          { value: 'this', label: 'This Week' },
+          { value: 'prev', label: 'Last Week' },
+        ]}
+      />
     </div>
   );
 }

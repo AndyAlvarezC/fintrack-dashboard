@@ -1,4 +1,5 @@
 import { useState, useCallback, memo } from 'react';
+
 import CardModalHeader from './CardModalHeader';
 import CardModalBenefits from './CardModalBenefits';
 import CardModalForm from './CardModalForm';
@@ -23,7 +24,9 @@ export interface FormData {
   cvv: string;
 }
 
+// Main modal component for creating a card
 function CardModal({ onClose, onSubmit }: props) {
+  // State to hold all form input values
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
@@ -35,7 +38,7 @@ function CardModal({ onClose, onSubmit }: props) {
     cvv: '',
   });
 
-  // Tracks Every Form Field Update and Syncs The Value With The Component State.
+  // Update form state on input change
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       const { name, value } = e.target;
@@ -44,7 +47,7 @@ function CardModal({ onClose, onSubmit }: props) {
     []
   );
 
-  {/* Generate 16 Random Digits */}
+  // Generate random 16-digit card number
   function generateCardNumber() {
     const digits = Array.from({ length: 16 }, () =>
       Math.floor(Math.random() * 10)
@@ -53,9 +56,7 @@ function CardModal({ onClose, onSubmit }: props) {
     return digits.replace(/(\d{4})(?=\d)/g, '$1 ');
   }
 
-  {
-    /* Handle submit: Create Card Number, Expiry Date, Cvv & New Card */
-  }
+  // Handle form submission
   const handleSubmit = useCallback(() => {
     const cardNumber = generateCardNumber();
 
@@ -63,6 +64,7 @@ function CardModal({ onClose, onSubmit }: props) {
       2,
       '0'
     )}/${String(new Date().getFullYear() + 3).slice(-2)}`;
+
     const cvv = String(Math.floor(100 + Math.random() * 900));
 
     const newCardData = {
@@ -76,9 +78,7 @@ function CardModal({ onClose, onSubmit }: props) {
     onClose();
   }, [formData, onSubmit, onClose]);
 
-  {
-    /* Close Modal on Backdrop Click */
-  }
+  // Close modal when clicking on backdrop
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -86,16 +86,17 @@ function CardModal({ onClose, onSubmit }: props) {
   };
 
   return (
-    // Modal_ Container
+    // Modal container
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-saturate-150 animate-fadeIn"
       onClick={handleBackdropClick}
     >
-      {/* Modal: Header */}
+      {/* Modal content */}
       <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-linear-to-b from-slate-900 to-slate-950 shadow-2xl animate-scaleIn">
+        {/* Header */}
         <CardModalHeader onClose={onClose} onSubmit={onSubmit} />
 
-        {/* Moda: Form & Benefits */}
+        {/* Form and Benefits */}
         <div className="grid gap-6 p-6 lg:grid-cols-2 text-left">
           <div className="space-y-4">
             <CardModalForm
@@ -105,13 +106,15 @@ function CardModal({ onClose, onSubmit }: props) {
             <CardModalBenefits cardType={formData.cardType} />
           </div>
 
+          {/* Card preview */}
           <CardPreview formData={formData} />
         </div>
-        {/* Modal: Footer */}
+
+        {/* Footer with action buttons */}
         <CardModalFooter onClose={onClose} onSubmit={handleSubmit} />
       </div>
 
-      {/* Modal Open & Close Animations */}
+      {/* Animations for modal */}
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; }

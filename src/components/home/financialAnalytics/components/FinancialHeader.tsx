@@ -1,19 +1,36 @@
 import Legend from './FinancialLegend';
 import Selector from '../../ui/Selector';
+import ComponentsHeader from '../../ui/ComponentsHeader';
 
-export default function FinancialHeader() {
+interface FinancialHeaderProps {
+  option: 'this' | 'prev';
+  setOption: React.Dispatch<React.SetStateAction<'this' | 'prev'>>;
+}
+
+export default function FinancialHeader({
+  option,
+  setOption,
+}: FinancialHeaderProps) {
   return (
-    <>
-      {/* Header: h2, Legend & Selector */}
-      <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 md:gap-6 w-full">
-        <h2 className="text-md md:text-lg font-semibold truncate">
-          Financial Analytics
-        </h2>
-        <div className="flex flex-wrap items-center gap-4 sm:gap-6 sm:ml-auto">
-          <Legend />
-          <Selector time="This Week" />
-        </div>
+    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 md:gap-6 w-full">
+      {/* Header Title */}
+      <ComponentsHeader name="Financial Analytics" />
+
+      {/* Legend and Selector */}
+      <div className="flex flex-wrap items-center gap-4 sm:gap-6 sm:ml-auto">
+        {/* Financial Legend */}
+        <Legend />
+
+        {/* Week Selector */}
+        <Selector
+          option={option}
+          setOption={setOption}
+          options={[
+            { value: 'this', label: 'This Week' },
+            { value: 'prev', label: 'Last Week' },
+          ]}
+        />
       </div>
-    </>
+    </div>
   );
 }

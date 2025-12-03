@@ -5,9 +5,12 @@ interface Props {
 
 export default function CardHeader({ type, label }: Props) {
   return (
-    // Card Header: Label & Type
+    // Card Header Container
     <div className="flex justify-between items-center">
-      <p className="text-sm font-medium text-white/80">{label || 'My Card'}</p>
+      {/* Card Label */}
+      <p className="text-sm font-medium text-white/80">{label || 'My Card'} </p>
+
+      {/* Card Type */}
       <p className="text-sm font-bold uppercase tracking-wider text-white">
         {type}
       </p>

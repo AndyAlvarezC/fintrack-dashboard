@@ -1,19 +1,28 @@
 import { ResponsiveContainer, AreaChart, Area, Tooltip } from 'recharts';
-import { expensesData } from '../data/expensesData';
+import {
+  totalBalancePrevMonth,
+  totalBalanceThisMonth,
+} from '../../../data/mockData';
+import CustomToolTip from '../../ui/CustomToolTip';
 
-export default function ExpensesChart() {
+export default function ExpensesChart({ option }: { option: 'this' | 'prev' }) {
+  const data =
+    option === 'this' ? totalBalanceThisMonth : totalBalancePrevMonth;
+
   return (
     <div className="w-full h-full min-h-[150px] overflow-hidden">
+      {/* Responsive Area Chart */}
       <ResponsiveContainer width="100%" height="100%" minHeight={150}>
-        <AreaChart data={expensesData}>
+        <AreaChart data={data}>
           <Area
-            dataKey="balance"
+            dataKey="Expenses"
             type="monotone"
-            stroke="#7a46f5"
-            fill="#443368"
+            stroke="#a78bfa"
+            fill="#a78bfa"
+            fillOpacity="0.2"
             strokeWidth={3}
           />
-          <Tooltip />
+          <Tooltip content={<CustomToolTip />} />
         </AreaChart>
       </ResponsiveContainer>
     </div>

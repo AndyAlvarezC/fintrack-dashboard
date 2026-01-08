@@ -23,6 +23,7 @@ export default function Home() {
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 w-full min-w-0">
         {/* Lect Section */}
         <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-9 gap-8 w-full min-w-0">
+          
           {/* Row 1 */}
           {/* Financial Analytics Container */}
           <div className="sm:col-span-2 lg:col-span-6 bg-linear-to-b from-slate-900 to-slate-950 shadow-2xl border border-slate-800 p-4 rounded-2xl min-h-[300px]">

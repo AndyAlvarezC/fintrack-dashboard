@@ -1,7 +1,7 @@
 import { Routes, Route, useOutletContext } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import Home from './pages/home/Home';
-import PlaceHolder from './pages/PlaceHolder';
+import PlaceHolder from './pages/placeHolder/PlaceHolder';
 import Logout from './pages/auth/Logout';
 
 function LogoutWrapper() {

@@ -49,7 +49,7 @@ export default function Card({ cards }: CardProps) {
           <CardHeader type={card.cardType} label={card.cardLabel} />
 
           {/* Card Number */}
-          <div className="flex flex-col mt-8 sm:mt-14 gap-2 font-semibold">
+          <div className="flex flex-col mt-8 sm:mt-14 xl:mt-8 2xl:mt-14 gap-2 font-semibold">
             <CardField label="Card Number" value={card.cardNumber} copyable />
           </div>
 

@@ -68,6 +68,9 @@ export default function MyCards() {
       <MyCardsHeader
         onOpenModal={() => setIsModalOpen(true)}
         totalCards={cards.length}
+        onDeleteCard={() =>
+          currentCard[0] && handleDeleteCard(currentCard[0].id)
+        }
       />
 
       {/* Card Container: shows one card at a time with transition */}

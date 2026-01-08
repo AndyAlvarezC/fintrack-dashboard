@@ -74,7 +74,16 @@ export default function IncomeStatisticsChart({ option }: Props) {
             animationEasing="ease-in-out"
           />
           {/* Custom tooltip component */}
-          <Tooltip content={<CustomToolTip />} />
+          <Tooltip
+            cursor={{ fill: 'rgba(255,255,255,0.03)' }}
+            content={
+              <CustomToolTip
+                nameFormatter={(name: string) =>
+                  name.charAt(0).toUpperCase() + name.slice(1)
+                }
+              />
+            }
+          />
         </BarChart>
       </ResponsiveContainer>
     </div>

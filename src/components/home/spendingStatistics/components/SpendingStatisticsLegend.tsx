@@ -21,7 +21,7 @@ export default function SpendingStatisticsLegend() {
           />
 
           {/* Label text */}
-          <span className="text-gray-300 text-xs sm:text-sm">{label}</span>
+          <span className="text-gray-300 text-xs sm:text-sm xl:text-xs 2xl:text-sm">{label}</span>
         </div>
       ))}
     </div>

@@ -13,7 +13,7 @@ import TransactionHistory from '../../components/home/transactionHistory/Transac
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full min-h-screen p-4 sm:p-6 bg-slate-950 text-slate-300">
+    <div className="flex flex-col w-full min-h-screen p-4 sm:p-6">
       {/* Header */}
       <div className="shrink-0 mb-6">
         <Header />

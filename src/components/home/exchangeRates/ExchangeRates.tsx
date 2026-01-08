@@ -52,7 +52,7 @@ export default function ExchangeRates() {
       <ExchangeHeader />
 
       {/* Exchange rates list*/}
-      <div className="flex flex-col md:flex-row sm:gap-16 w-full sm:px-16">
+      <div className="flex flex-col md:flex-row sm:gap-16 w-full sm:px-4 2xl:px-16 py-4 ">
         {/* First column */}
         <div className="flex-1 flex flex-col gap-2 min-w-0">
           {firstColumn.map((rate, idx) => (

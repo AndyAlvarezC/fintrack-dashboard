@@ -13,7 +13,7 @@ export default function SpendingStatistics() {
       <SpendingStatisticsHeader option={option} setOption={setOption} />
 
       {/* Content section: legend (left) + chart (right) */}
-      <div className="flex flex-col md:flex-row gap-6 w-full h-full flex-1 min-w-0">
+      <div className="flex flex-col md:flex-row gap-5 w-full h-full flex-1 min-w-0">
         {/* Legend container */}
         <div className="flex items-center justify-center md:justify-start md:w-1/4">
           <SpendingStatisticsLegend />
